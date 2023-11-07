@@ -2,7 +2,7 @@ from django import forms
 from .models import Order
 
 class OrderCreateForm(forms.ModelForm):
-	country_CHOICES = (
+	division_CHOICES = (
 		('Romania', 'Romania'),
 		('Germany', 'Germany'),
 		('Italy', 'Italy '),
@@ -19,10 +19,10 @@ class OrderCreateForm(forms.ModelForm):
 		('Pay with cash on arrival','Pay with cash on arrival')
 	)
 
-	country = forms.ChoiceField(choices=country_CHOICES)
-	city =  forms.ChoiceField(choices=DISCRICT_CHOICES)
+	division = forms.ChoiceField(choices=division_CHOICES)
+	district =  forms.ChoiceField(choices=DISCRICT_CHOICES)
 	payment_method = forms.ChoiceField(choices=PAYMENT_METHOD_CHOICES, widget=forms.RadioSelect())
 
 	class Meta:
 		model = Order
-		fields = ['name', 'email', 'phone', 'address', 'country', 'city', 'zip_code', 'payment_method', 'account_no', 'transaction_id']
+		fields = ['name', 'email', 'phone', 'address', 'division', 'district', 'zip_code', 'payment_method', 'account_no', 'transaction_id']
